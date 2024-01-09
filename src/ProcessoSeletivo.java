@@ -1,12 +1,29 @@
+import java.util.concurrent.ThreadLocalRandom;
+
 public class ProcessoSeletivo {
     public static void main(String[] args) throws Exception {
-       analisarCanditado(1900.0);
-       analisarCanditado(2200.0);
-       analisarCanditado(2000.0);
-
-
     }
-
+    static void selecionarCandidato(){
+        String [] candidatos = {"Kaique", "Solange","Paulo", "Katiane","Lorena","Damiana"};
+        int candidatoSelecionado = 0;
+        int candidatoAtual = 0;
+        double salarioBase = 2000.0;
+            while (candidatoSelecionado < 5  && candidatoAtual < candidatos.length) {
+                String candidato = candidatos[candidatoAtual];
+                double salarioEstimado =  valorPrentendido();
+                System.out.println("O candidado " + candidato + "solicitou este valor de salario" + salarioEstimado);
+                if (salarioBase >= valorPrentendido()) {
+                    System.out.println("O candidado " + candidato + "foi solicitado para a vaga");
+                    candidatoSelecionado++;
+                }
+                candidatoAtual++
+            }
+    }
+    
+    static double valorPrentendido() {
+        return ThreadLocalRandom.current().nextDouble(1800, 2200);                                                  
+    }
+    // metodo analisar candidato
     static void analisarCanditado( double salarioEstimado){
         double salarioBase = 2000.0;
         if (salarioBase > salarioEstimado) { 

@@ -2,7 +2,20 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class ProcessoSeletivo {
     public static void main(String[] args) throws Exception {
+        
     }
+
+    // metodo para imprimir uma lista 
+    static void imprimirCandidato(){
+        String [] candidatos = {"Kaique", "Solange","Paulo", "Katiane"};
+        System.out.println("lista de candidatos aprovados");
+
+        for (String candidato: candidatos){
+            System.out.println("o candidato selecionado foi:"  + candidato);
+        }
+    }
+
+    // metodo de selecionar candidatos
     static void selecionarCandidato(){
         String [] candidatos = {"Kaique", "Solange","Paulo", "Katiane","Lorena","Damiana"};
         int candidatoSelecionado = 0;
@@ -16,7 +29,7 @@ public class ProcessoSeletivo {
                     System.out.println("O candidado " + candidato + "foi solicitado para a vaga");
                     candidatoSelecionado++;
                 }
-                candidatoAtual++
+                candidatoAtual++;
             }
     }
     

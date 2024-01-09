@@ -2,8 +2,42 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class ProcessoSeletivo {
     public static void main(String[] args) throws Exception {
-        
+        String [] candidatos = {"Kaique", "Solange","Paulo", "Katiane"};
+        for (String candidato: candidatos){
+             ligar(candidato);
+        }
     }
+
+
+// metodo paraa ligar os candidatos
+    static void ligar(String candidado){
+        int tentativasRealizadas = 1;
+        boolean continuarTentando  = true;
+        boolean atendeu = false;
+        
+            do {
+                atendeu = atender();
+                continuarTentando = !atendeu;
+                
+                if  (continuarTentando){
+                    tentativasRealizadas++;
+                } else {
+                    System.out.println("contato realizado ");
+                }
+
+
+            } while(continuarTentando && tentativasRealizadas < 3);
+                if (atendeu) {
+                    System.out.println("conseguimos contato com" + candidado + "na"  + tentativasRealizadas + "tentativa");
+                } else {
+                    System.out.println("conseguimos contato com" + candidado + "numero maximo de tentativas "  + tentativasRealizadas + "realizadas");
+                }
+    }
+    // metodo auxiliar
+    static void atender(){
+        return new Random().nextInt(3)==1;
+    }
+
 
     // metodo para imprimir uma lista 
     static void imprimirCandidato(){
@@ -46,8 +80,9 @@ public class ProcessoSeletivo {
         } else { 
             System.out.println("aguardando demais");
         }
-        
-       
-
     }
+
+
+
+
 }
